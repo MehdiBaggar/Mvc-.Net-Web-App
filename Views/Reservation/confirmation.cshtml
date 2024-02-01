@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "reservation";
+}
+<h1>@ViewData["Title"]</h1>
+
+<h2>Confirmation Details</h2>
+
+<div>
+
+
+
+    <h3>User Information:</h3>
+    <p><strong>Title:</strong> @ViewBag.User.Titre</p>
+    <p><strong>Name:</strong> @ViewBag.User.Nom</p>
+    <p><strong>First Name:</strong> @ViewBag.User.Prenom</p>
+
+
+    <h3>Reservation Information:</h3>
+    <p><strong>Departure Date:</strong> @ViewBag.Reservation.DateDepart</p>
+    <p><strong>Return Date:</strong> @ViewBag.Reservation.DateRetour</p>
+    <p><strong>Departure Location:</strong> @ViewBag.Reservation.localisationDepart</p>
+    <p><strong>Return Location:</strong> @ViewBag.Reservation.localisationRetour</p>
+
+
+</div>
+
+@if (ViewBag.SuccessMessage != null)
+{
+    <p style="color: green;">@ViewBag.SuccessMessage</p>
+}
+<div>
+    <a asp-controller="Home" asp-action="Index">Return to Home</a>
+
+</div>
+
+
+
+
+

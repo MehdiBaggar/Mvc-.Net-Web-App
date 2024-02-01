@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "List25";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Marque</th>
+            <th scope="col">Model</th>
+            <th scope="col">Type</th>
+            <th scope="col">Annee Immatriculation</th>
+            <th scope="col">Kilomertrage</th>
+            <th scope="col">Supprimer</th>
+            <th scope="col">Modifier</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Voiture voiture in ViewBag.list)
+        {
+            <tr class="table-dark">
+                <th scope="row">@voiture.Id</th>
+                <td>@voiture.Marque</td>
+                <td>@voiture.Modele</td>
+                <td>@voiture.Type</td>
+                <td>@voiture.AnneeImmatriculation</td>
+                <td>@voiture.Kilometrage</td>
+                <td><a asp-action="Supprimer" asp-route-Id="@voiture.Id">supprimer</a></td>
+                <td><a asp-action="Modifier" asp-route-Id="@voiture.Id">modifier</a></td>
+
+            </tr>
+        }
+    </tbody>

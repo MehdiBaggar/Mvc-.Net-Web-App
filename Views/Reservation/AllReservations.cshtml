@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "All Reservations";
+}
+
+<h2>All Reservations</h2>
+
+@foreach (var reservation in Model)
+{
+    <div>
+        <p>Reservation ID: @reservation.Id</p>
+        <p>Date Depart: @reservation.DateDepart</p>
+        <p>Date Retour: @reservation.DateRetour</p>
+        <p>localisationDepart: @reservation.localisationDepart</p>
+        <p>localisationRetour: @reservation.localisationRetour</p>
+        <p>Voiture ID: @reservation.VoitureId</p>
+        <form asp-action="DeleteReservation" method="post">
+            <input type="hidden" name="reservationId" value="@reservation.Id" />
+            <button type="submit">Delete</button>
+        </form>
+        <hr />
+    </div>
+}
+

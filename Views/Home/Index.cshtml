@@ -1,0 +1,59 @@
+﻿@model List<GestionVoiture.Models.Voiture>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">LOCATION DE VOITURE À CASABLANCA </h1>
+    <p>
+        Économisez 20% sur toutes les voitures de luxe dès aujourd’hui !
+        Appelez nous dès maintenant pour réserver une voiture pour vos vacances au Maroc à seulement 28 € par jour.</a>.
+    </p>
+    <button type="button" class="btn btn-outline-secondary">Tél & WhatsApp : <a href="tel:+212632599781">06 32 59 97 81</a></button>
+    <button type="button" class="btn btn-outline-secondary">Tél & WhatsApp : <a href="tel:+212661754251">06 61 75 42 51</a></button>
+    <br />
+    <br />
+    
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        @foreach (var voiture in Model)
+        {
+            <div>
+                <a tabindex="-1">
+                    @if (voiture.Photo != null && voiture.Photo.Length > 0)
+                    {
+                        var base64 = Convert.ToBase64String(voiture.Photo);
+                        var imgSrc = $"data:image/jpeg;base64,{base64}";
+                        <img src="@imgSrc" alt="@voiture.Modele" style="max-width: 300px; max-height: 250px; border-radius: 0; margin-bottom: 15px;" />
+                    }
+                    else
+                    {
+                        <span>No Photo</span>
+                    }
+                </a>
+                <span class="content-section" style="text-align: center; display: block; top: 0%;">
+                    <h2 class="tdt-slider-heading" style="font-size: 18px; color: #c5a775; font-weight: normal; line-height: 1;">
+                        @voiture.Modele
+                    </h2>
+                    <p></p>
+                    <p style="text-align: center;">
+                        <span>Louez @voiture.Marque à partir de @(voiture.PrixAPartir.HasValue ? voiture.PrixAPartir.Value.ToString("N2") : "0.00") dhs/J</span>
+
+
+                    </p>
+                    <p>
+                        <br>
+                        <span>
+                            <a href="#">
+                                Réservez Maintenant
+                            </a>
+                        </span>
+                    </p>
+                    <p>&nbsp;</p>
+                </span>
+            </div>
+        }
+    </div>
+
+
+</div>
+

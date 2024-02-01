@@ -1,0 +1,40 @@
+﻿@model GestionVoiture.Models.Voiture
+@{
+    ViewData["Title"] = "Ajouter";
+}
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Ajouter" method="post" enctype="multipart/form-data">
+
+    Marque : <input asp-for="Marque" /> <br />
+    Modele : <input asp-for="Modele" /> <br />
+    Type :<select asp-for="Type">
+        <option value="Berline">Berlin</option>
+        <option value="Coupee">Coupee</option>
+        <option value="Suv">Suv</option>
+        }
+    </select>
+    <br />
+    Date d'Immatriculation : <input asp-for="AnneeImmatriculation" /> <br />
+    Kilometrage : <input asp-for="Kilometrage" /> <br />
+    Portes : <input asp-for="Portes" /> <br />
+    Depot : <input asp-for="Depot" /> <br />
+    Age Minimal du conducteur : <input asp-for="AgeMinimalConducteur" /><br />
+    Carburant : <input asp-for="Carburant" /> <br />
+    Capacite du moteur : <input asp-for="CapaciteMoteur" /> <br />
+    MaxPassager : <input asp-for="MaxPassagers" /><br />
+    Prix a partir : <input asp-for="PrixAPartir" /> <br />
+    Is Reserved : <input asp-for="Isreserved" /> <br />
+    <div>
+        <label for="PhotoFile">Photo:</label>
+        <input type="file" accept=".jpg, .jpeg, .png" name="PhotoFile" />
+    </div>
+
+    <button type="submit">Save</button>
+
+
+
+</form>
+
+
+

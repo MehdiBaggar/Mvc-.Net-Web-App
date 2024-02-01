@@ -1,0 +1,71 @@
+﻿@model List<GestionVoiture.Models.Voiture>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<br />
+<br />
+<h1>Nos Voitures</h1>
+<p>
+    Luxe Rental Car propose marques différentes de voitures de luxe à louer.<br>
+    Nos marques de voitures haut de gamme comprennent des voitures dans six catégories : cabriolet, 4×4 de luxe , voiture de sport, prestige et exotique.<br>
+    Ces marques de voitures admirées sont à la pointe de la technologie et vous offrent l’expérience de conduite la plus incroyable dans autant d’endroits que vous pouvez imaginer. Louez l’une de nos prestigieuses marques de voitures exotiques et profitez des meilleures voitures
+</p>
+<br />
+<hr>
+<div class="card-container">
+    @foreach (var voiture in Model)
+    {
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">@voiture.Type</h5>
+            </div>
+            <div class="card-body">
+                @if (voiture.Photo != null && voiture.Photo.Length > 0)
+                {
+                    var base64 = Convert.ToBase64String(voiture.Photo);
+                    var imgSrc = $"data:image/jpeg;base64,{base64}";
+                    <img src="@imgSrc" alt="Car Photo" class="card-img-top" />
+                }
+                else
+                {
+                    <span>No Photo</span>
+                }
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">ID: @voiture.Id</li>
+                <li class="list-group-item">Modele: @voiture.Modele</li>
+                <li class="list-group-item">Marque: @voiture.Marque</li>
+                <li class="list-group-item">
+                    <a asp-controller="Voiture" asp-action="Modifier" asp-route-id="@voiture.Id">edit</a>
+                    <a asp-controller="Voiture" asp-action="Delete" asp-route-id="@voiture.Id">Delete</a>
+                </li>
+            </ul>
+
+                
+            </div>
+        </div>
+    }
+</div>
+
+<style>
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .card {
+        width: 300px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        max-width: 100%;
+        height: auto;
+    }
+</style>
+<br />
+<hr>
+<button><a href="@Url.Action("Ajouter", "Voiture")">ajouter Voiture </a> </button>

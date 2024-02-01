@@ -1,0 +1,33 @@
+﻿@model GestionVoiture.Models.Reservation
+@{
+    ViewData["Title"] = "Reservation Page";
+}
+<form asp-action="Index" method="post">
+    <div class="form-group">
+        <label asp-for="DateDepart" class="control-label">Date de Depart:</label>
+        <input asp-for="DateDepart" class="form-control" type="date" required />
+        <span asp-validation-for="DateDepart" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DateRetour" class="control-label">Date de Retour:</label>
+        <input asp-for="DateRetour" class="form-control" type="date" required />
+        <span asp-validation-for="DateRetour" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="localisationDepart" class="control-label">localisation de depart:</label>
+        <input asp-for="localisationDepart" class="form-control" type="text" required />
+        <span asp-validation-for="localisationDepart" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="localisationRetour" class="control-label">localisationRetour:</label>
+        <input asp-for="localisationRetour" class="form-control" type="text" required />
+        <span asp-validation-for="localisationRetour" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+
+<button><a href="@Url.Action("AllReservations", "Reservation")">All reservation </a> </button>

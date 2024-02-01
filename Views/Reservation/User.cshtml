@@ -1,0 +1,97 @@
+﻿@model GestionVoiture.Models.ApplicationUser
+@{
+    ViewData["Title"] = "User Information";
+}
+
+<h1>User Information</h1>
+@if (TempData["AlertMessage"] != null)
+{
+    <script>
+        alert('@TempData["AlertMessage"]');
+    </script>
+}
+    <h2>Already Have a reservation ? </h2>
+    <form asp-action="Login" method="post">
+        <div class="form-group">
+            <label asp-for="Email" class="control-label">Email:</label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="PasswordHash" class="control-label">Password:</label>
+            <input asp-for="PasswordHash" class="form-control" type="password" />
+            <span asp-validation-for="PasswordHash" class="text-danger"></span>
+        </div>
+        <hr />
+
+    </form>
+<form asp-action="User" method="post">
+    <div class="form-group">
+        <label asp-for="Titre" class="control-label">Title:</label>
+        <select asp-for="Titre" class="form-control">
+            <option value="M">M</option>
+            <option value="Mme">Mme</option>
+        </select>
+        <span asp-validation-for="Titre" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Nom" class="control-label">Last Name:</label>
+        <input asp-for="Nom" class="form-control" />
+        <span asp-validation-for="Nom" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Prenom" class="control-label">First Name:</label>
+        <input asp-for="Prenom" class="form-control" />
+        <span asp-validation-for="Prenom" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Adresse" class="control-label">Address:</label>
+        <input asp-for="Adresse" class="form-control" />
+        <span asp-validation-for="Adresse" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email" class="control-label">Email:</label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DateNaissance" class="control-label">Date of Birth:</label>
+        <input asp-for="DateNaissance" class="form-control" type="date" />
+        <span asp-validation-for="DateNaissance" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Ville" class="control-label">City:</label>
+        <input asp-for="Ville" class="form-control" />
+        <span asp-validation-for="Ville" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CodePostal" class="control-label">Postal Code:</label>
+        <input asp-for="CodePostal" class="form-control" />
+        <span asp-validation-for="CodePostal" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Phone" class="control-label">Phone:</label>
+        <input asp-for="Phone" class="form-control" />
+        <span asp-validation-for="Phone" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PasswordHash" class="control-label">Password:</label>
+        <input asp-for="PasswordHash" class="form-control" type="password" />
+        <span asp-validation-for="PasswordHash" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+

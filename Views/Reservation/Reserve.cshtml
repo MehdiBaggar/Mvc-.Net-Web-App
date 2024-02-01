@@ -1,0 +1,28 @@
+﻿@model GestionVoiture.Models.Reservation
+
+@{
+    ViewData["Title"] = "Reservation";
+}
+<h1>@ViewData["Title"]</h1>
+
+<h2>Confirm Reservation</h2>
+
+<p>
+    You have selected the following details for your reservation:
+</p>
+
+<ul>
+    <li><strong>Date de Depart:</strong> @Model.DateDepart</li>
+    <li><strong>Date de Retour:</strong> @Model.DateRetour</li>
+    <li><strong>Date de Retour:</strong> @Model.localisationDepart</li>
+    <li><strong>Date de Retour:</strong> @Model.localisationRetour</li>
+</ul>
+
+<form asp-action="confirmation" method="post">
+    <input type="hidden" asp-for="VoitureId" />
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Confirm Reservation</button>
+    </div>
+</form>
+

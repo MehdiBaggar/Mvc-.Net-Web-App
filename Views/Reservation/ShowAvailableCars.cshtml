@@ -1,0 +1,43 @@
+﻿@model List<GestionVoiture.Models.Voiture>
+
+@{
+    ViewData["Title"] = "AvailableCars";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+<h2>Available Cars</h2>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Car ID</th>
+                <th>Marque</th>
+                <th>Modele</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var voiture in Model)
+            {
+                <tr>
+                    <td>@voiture.Id</td>
+                    <td>@voiture.Marque</td>
+                    <td>@voiture.Modele</td>
+                    <td>
+                        <a asp-action="Reserve" asp-route-voitureId="@voiture.Id">Reserve</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No available cars for the selected dates.</p>
+}
+
+
+
