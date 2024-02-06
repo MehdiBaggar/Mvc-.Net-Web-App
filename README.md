@@ -1,4 +1,2 @@
 # Mvc-.Net-Web-App Beta
-this my mvc .net web app project for car rental
-this app has a lot of features like u can add cars and users and reservations but unfortunately i didn't completed it 
-this app need a login page and user interface 
+Voici mon projet d'application web MVC .NET pour la location de voitures. Cette application offre de nombreuses fonctionnalités telles que la possibilité d'ajouter des voitures, des utilisateurs et des réservations. Cependant, je n'ai malheureusement pas pu le terminer. Cette application nécessite notamment une page de connexion et une interface utilisateur.
